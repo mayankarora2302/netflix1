@@ -117,7 +117,11 @@ export default function EpisodePage({ params }: { params: { id: string } }) {
             <div className="relative z-20 px-4 md:px-12 py-12 max-w-7xl mx-auto">
                 {/* Audio Player */}
                 <div className="mb-12">
-                    <AudioPlayer audioSrc={episode.soundtrack} episodeTitle={episode.title} />
+                    <AudioPlayer
+                        audioSrc={episode.soundtrack}
+                        episodeTitle={episode.title}
+                        songName={episode.songName}
+                    />
                 </div>
 
                 {/* Episode-Specific Content */}

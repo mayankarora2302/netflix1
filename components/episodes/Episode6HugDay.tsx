@@ -5,17 +5,28 @@ import MemoryGallery from '../MemoryGallery';
 
 export default function Episode6HugDay() {
     // TODO: PERSONALIZE - Add your comfort message
-    const hugMessage = `
-    Your embrace is my sanctuary.
-    In your arms, the world fades away and only we remain.
-    Every hug is a reminder that I'm exactly where I belong.
-  `;
+    const hugMessage = `Dear Lolli,
+When I think of hugs, I don’t think of big moments. I think of our first evening after the CRP.
+The walk to Dorabjee’s on the 15th. Nothing dramatic, just us walking, talking about random things, stretching time a little because neither of us really wanted the evening to end.
+
+And then when I was dropping you back, that hug. Quiet, unplanned, and somehow exactly right. The kind where everything slows down for a few seconds. No overthinking, no words, just comfort. I remember thinking how natural it felt, like that space in your arms was already meant for me.
+
+Some hugs don’t feel like goodbye. They feel like reassurance. Like saying, without speaking, that this is where you’re supposed to be. That’s what that moment felt like to me. Easy, warm, and certain in a way that’s hard to explain but impossible to forget.
+
+So today, on Hug Day, I’m just remembering that feeling. The calm of it. The way it stayed with me even after you walked away. And how, with you, comfort never feels forced. It just happens.
+
+Happy Hug Day, my love 🤍
+(You’ll always be my favourite hug.)
+Always yours,
+Janit`;
 
     const images = [
-        '/assets/images/WhatsApp Image 2026-02-01 at 20.47.17 (1).jpeg',
-        '/assets/images/WhatsApp Image 2026-02-01 at 20.47.18.jpeg',
-        '/assets/images/WhatsApp Image 2026-02-01 at 20.47.18 (1).jpeg',
-        '/assets/images/WhatsApp Image 2026-02-01 at 20.47.18 (2).jpeg',
+        '/assets/images/WhatsApp Image 2026-02-01 at 20.47.16.jpeg',
+        '/assets/images/WhatsApp Image 2026-02-01 at 20.47.16 (1).jpeg',
+        '/assets/images/WhatsApp Image 2026-02-01 at 20.47.16 (2).jpeg',
+        '/assets/images/WhatsApp Image 2026-02-01 at 20.47.16 (3).jpeg',
+        '/assets/images/WhatsApp Image 2026-02-01 at 20.47.16 (4).jpeg',
+        '/assets/images/WhatsApp Image 2026-02-01 at 20.47.16 (5).jpeg',
     ];
 
     return (

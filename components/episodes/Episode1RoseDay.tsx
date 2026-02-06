@@ -5,17 +5,23 @@ import MemoryGallery from '../MemoryGallery';
 
 export default function Episode1RoseDay() {
     // TODO: PERSONALIZE - Add your own love message
-    const loveMessage = `
-    Like the first rose of spring, our love bloomed with gentle beauty.
-    Every petal tells a story, every thorn a lesson learned together.
-    You are my first bloom, my eternal spring.
-  `;
+    const loveMessage = `Dear Bhavya,
+Welcome to Our Story: Season 2, Episode 1
+Roses may wither with time, but some feelings quietly grow stronger. Every moment with you feels like a garden slowly coming into bloom. Soft, beautiful, and filled with a kind of warmth that stays long after the moment passes.
+When I look back at how our story began, it feels a lot like this first season. Simple, gentle, and unaware of how important it would become later. Before the big words, before the songs, before everything we are today, there was just this feeling. A quiet happiness in noticing you, in wanting to be around you, in not yet knowing how much you would mean to me.
+So on this Rose Day, I just want to remind you of something simple. In the garden of my heart, you have always been the most special flower. Not because of grand moments, but because you made ordinary days feel beautiful without even trying.
+This is the first page of our little story from the 7th to the 15th.
+And I already know this book is my favourite one to read.
+All of me loves all of you
+With endless love,
+Janit 🌹`;
 
     const images = [
-        '/assets/images/WhatsApp Image 2026-02-01 at 20.46.16.jpeg',
-        '/assets/images/WhatsApp Image 2026-02-01 at 20.46.16 (1).jpeg',
-        '/assets/images/WhatsApp Image 2026-02-01 at 20.46.16 (2).jpeg',
-        '/assets/images/WhatsApp Image 2026-02-01 at 20.47.15.jpeg',
+        '/assets/images/WhatsApp Image 2026-02-06 at 12.37.57.jpeg',
+        '/assets/images/WhatsApp Image 2026-02-06 at 12.37.57 (1).jpeg',
+        '/assets/images/WhatsApp Image 2026-02-06 at 12.37.57 (2).jpeg',
+        '/assets/images/WhatsApp Image 2026-02-06 at 12.37.58.jpeg',
+        '/assets/images/WhatsApp Image 2026-02-06 at 12.37.58 (1).jpeg',
     ];
 
     return (

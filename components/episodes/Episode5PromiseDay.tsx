@@ -14,11 +14,24 @@ export default function Episode5PromiseDay() {
     ];
 
     const images = [
-        '/assets/images/WhatsApp Image 2026-02-01 at 20.47.16 (3).jpeg',
-        '/assets/images/WhatsApp Image 2026-02-01 at 20.47.16 (4).jpeg',
-        '/assets/images/WhatsApp Image 2026-02-01 at 20.47.16 (5).jpeg',
-        '/assets/images/WhatsApp Image 2026-02-01 at 20.47.17.jpeg',
+        '/assets/images/WhatsApp Image 2026-02-01 at 20.47.15 (5).jpeg',
+        '/assets/images/WhatsApp Image 2026-02-01 at 20.47.15 (6).jpeg',
+        '/assets/images/WhatsApp Image 2026-02-01 at 20.47.15 (7).jpeg',
+        '/assets/images/WhatsApp Image 2026-02-01 at 20.47.15 (8).jpeg',
+        '/assets/images/WhatsApp Image 2026-02-01 at 20.47.15 (9).jpeg',
     ];
+
+    const vowMessage = `Dear Bhavya,
+My promise to you is not something grand or complicated. It is simple and real. I promise to treat you with kindness every day, to see you for who you truly are, and to never take your love for granted. I promise to try, even on difficult days, to protect your peace and to keep that beautiful smile on your face for as long as I can.
+
+I promise to stand beside you when life feels heavy, to listen when you need to be heard, and to hold you close when words are not enough. I promise to grow with you, to learn with you, and to keep choosing us, again and again.
+
+I cannot promise a perfect life, but I can promise honesty, patience, and a love that stays. A love that makes space for your happiness, your dreams, and everything that makes you who you are.
+
+My heart is yours. Always has been, always will be.
+
+Always yours,
+Janit 🤍`;
 
     return (
         <div className="space-y-12">
@@ -32,9 +45,11 @@ export default function Episode5PromiseDay() {
                 <h3 className="text-3xl font-bold mb-4" style={{ color: '#4A5568' }}>
                     Sacred Vows
                 </h3>
-                <p className="text-lg text-netflix-lightGray max-w-2xl mx-auto">
-                    These are the promises I make to you, written in the stars and sealed with my heart
-                </p>
+                <div className="bg-gradient-to-br from-indigo-900/20 to-purple-900/20 rounded-lg p-8 md:p-12 netflix-shadow max-w-3xl mx-auto">
+                    <p className="text-lg md:text-xl text-netflix-lightGray leading-relaxed whitespace-pre-line">
+                        {vowMessage}
+                    </p>
+                </div>
             </motion.div>
 
             {/* Promise Cards */}

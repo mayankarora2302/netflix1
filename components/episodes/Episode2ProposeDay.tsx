@@ -1,9 +1,13 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
+import { useState } from 'react';
 import MemoryGallery from '../MemoryGallery';
 
 export default function Episode2ProposeDay() {
+    const [isExpanded, setIsExpanded] = useState(false);
+
     // TODO: PERSONALIZE - Add your own proposal message/monologue
     const proposalMonologue = `
     From the moment I met you, I knew my life would never be the same.
@@ -13,14 +17,75 @@ export default function Episode2ProposeDay() {
   `;
 
     const images = [
-        '/assets/images/WhatsApp Image 2026-02-01 at 20.47.15 (1).jpeg',
-        '/assets/images/WhatsApp Image 2026-02-01 at 20.47.15 (2).jpeg',
-        '/assets/images/WhatsApp Image 2026-02-01 at 20.47.15 (3).jpeg',
-        '/assets/images/WhatsApp Image 2026-02-01 at 20.47.15 (4).jpeg',
+        '/assets/images/WhatsApp Image 2026-02-06 at 12.37.59.jpeg',
+        '/assets/images/WhatsApp Image 2026-02-06 at 12.37.59 (1).jpeg',
+        '/assets/images/WhatsApp Image 2026-02-06 at 12.37.59 (2).jpeg',
+        '/assets/images/WhatsApp Image 2026-02-06 at 12.38.00.jpeg',
+        '/assets/images/WhatsApp Image 2026-02-06 at 12.38.00 (1).jpeg',
     ];
 
     return (
         <div className="space-y-12">
+            {/* Episode Poster with Expand Functionality */}
+            <div className="relative">
+                <motion.div
+                    layoutId="episode-poster"
+                    onClick={() => setIsExpanded(true)}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="cursor-pointer rounded-lg overflow-hidden netflix-shadow border border-netflix-darkGray/50 bg-black/40 group relative"
+                >
+                    <div className="relative aspect-[4/3] md:aspect-video w-full flex items-center justify-center">
+                        <Image
+                            src="/assets/images/Poster.png"
+                            alt="Episode Poster"
+                            fill
+                            className="object-contain transition-transform duration-500 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
+                            <span className="bg-netflix-red text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+                                Click to Expand 🔍
+                            </span>
+                        </div>
+                    </div>
+                </motion.div>
+
+                <AnimatePresence>
+                    {isExpanded && (
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4 md:p-8 cursor-zoom-out"
+                            onClick={() => setIsExpanded(false)}
+                        >
+                            <motion.button
+                                className="absolute top-6 right-6 text-white text-4xl font-light hover:text-netflix-red transition-colors z-[110]"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    setIsExpanded(false);
+                                }}
+                            >
+                                ×
+                            </motion.button>
+                            <motion.div
+                                layoutId="episode-poster"
+                                className="relative w-full h-full max-w-4xl max-h-[90vh] flex items-center justify-center"
+                            >
+                                <Image
+                                    src="/assets/images/Poster.png"
+                                    alt="Expanded Poster"
+                                    width={1200}
+                                    height={1800}
+                                    className="max-h-full w-auto object-contain rounded-sm"
+                                    priority
+                                />
+                            </motion.div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+            </div>
+
             {/* Cinematic Letter */}
             <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}

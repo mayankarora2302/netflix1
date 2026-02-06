@@ -5,17 +5,22 @@ import MemoryGallery from '../MemoryGallery';
 
 export default function Episode4TeddyDay() {
     // TODO: PERSONALIZE - Add your cozy memories
-    const comfortMessage = `
-    In your arms, I found my safe haven.
-    Like a warm teddy bear on a cold night,
-    you're my comfort, my warmth, my home.
-  `;
+    const comfortMessage = `Dear Yosha Monkey Bear,
+This week is our Netflix series, then today feels like the softest episode. The kind you don’t rush through. The kind that feels warm just by existing.
+Some people keep a teddy not because it does anything special, but because it feels comforting.  I think that’s what love slowly becomes, too. Not just excitement, but a quiet place you return to after long days.
+Somewhere along the way, you became that for me. The person who makes everything feel lighter without trying. The calm in between busy moments. The feeling of being understood sometimes, without having to explain too much.
+So today is just a gentle reminder in our story. Love is not always loud. Sometimes it’s soft, warm, and held close.
+Happy Teddy Day, my love 🧸
+(You’re my Teddy Bear)
+Your Teddy Always,
+Janit`;
 
     const images = [
-        '/assets/images/WhatsApp Image 2026-02-01 at 20.47.15 (9).jpeg',
-        '/assets/images/WhatsApp Image 2026-02-01 at 20.47.16.jpeg',
-        '/assets/images/WhatsApp Image 2026-02-01 at 20.47.16 (1).jpeg',
-        '/assets/images/WhatsApp Image 2026-02-01 at 20.47.16 (2).jpeg',
+        '/assets/images/WhatsApp Image 2026-02-06 at 12.38.04.jpeg',
+        '/assets/images/WhatsApp Image 2026-02-01 at 20.46.16.jpeg',
+        '/assets/images/WhatsApp Image 2026-02-01 at 20.46.16 (1).jpeg',
+        '/assets/images/WhatsApp Image 2026-02-01 at 20.46.16 (2).jpeg',
+        '/assets/images/WhatsApp Image 2026-02-01 at 20.47.15 (3).jpeg',
     ];
 
     return (

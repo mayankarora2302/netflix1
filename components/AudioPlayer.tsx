@@ -6,9 +6,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 interface AudioPlayerProps {
     audioSrc?: string;
     episodeTitle: string;
+    songName?: string;
 }
 
-export default function AudioPlayer({ audioSrc, episodeTitle }: AudioPlayerProps) {
+export default function AudioPlayer({ audioSrc, episodeTitle, songName }: AudioPlayerProps) {
     const [isPlaying, setIsPlaying] = useState(false);
     const [volume, setVolume] = useState(0.7);
     const [currentTime, setCurrentTime] = useState(0);
@@ -19,32 +20,68 @@ export default function AudioPlayer({ audioSrc, episodeTitle }: AudioPlayerProps
 
     useEffect(() => {
         const audio = audioRef.current;
-        if (!audio) return;
+        if (!audio || !audioSrc) return;
 
-        const handleAudioError = () => {
-            console.warn(`Audio failed to load for ${episodeTitle}: ${audioSrc}`);
-            setIsError(true);
-            setIsPlaying(false);
+        // Clear any previous error state when source changes
+        setIsError(false);
+        let hasLoaded = false;
+
+        // Explicitly set the src to ensure it's applied to the DOM
+        audio.src = audioSrc;
+        audio.load();
+
+        const handleLoadedData = () => {
+            hasLoaded = true;
+            setIsError(false);
+        };
+
+        const handleCanPlay = () => {
+            hasLoaded = true;
+            setIsError(false);
+        };
+
+        const handleAudioError = (e: Event) => {
+            // Only treat as error if we've actually tried to load and failed
+            const target = e.target as HTMLAudioElement;
+            if (target.error) {
+                const errorCode = target.error.code;
+                // MEDIA_ERR_SRC_NOT_SUPPORTED = 4, MEDIA_ERR_NETWORK = 2, MEDIA_ERR_DECODE = 3
+                if (errorCode === 1 || errorCode === 2 || errorCode === 3 || errorCode === 4) {
+                    console.warn(`Audio loading error for ${episodeTitle}:`, {
+                        code: errorCode,
+                        message: target.error.message,
+                        src: audioSrc
+                    });
+                    setIsError(true);
+                    setIsPlaying(false);
+                }
+            }
         };
 
         const updateTime = () => setCurrentTime(audio.currentTime);
         const updateDuration = () => setDuration(audio.duration);
 
+        audio.addEventListener('loadeddata', handleLoadedData);
+        audio.addEventListener('canplay', handleCanPlay);
         audio.addEventListener('error', handleAudioError);
         audio.addEventListener('timeupdate', updateTime);
         audio.addEventListener('loadedmetadata', updateDuration);
         audio.addEventListener('ended', () => setIsPlaying(false));
 
         return () => {
+            audio.removeEventListener('loadeddata', handleLoadedData);
+            audio.removeEventListener('canplay', handleCanPlay);
             audio.removeEventListener('error', handleAudioError);
             audio.removeEventListener('timeupdate', updateTime);
             audio.removeEventListener('loadedmetadata', updateDuration);
             audio.removeEventListener('ended', () => setIsPlaying(false));
 
             // Resource cleanup
-            audio.pause();
-            audio.src = "";
-            audio.load();
+            if (audio) {
+                audio.pause();
+                audio.removeAttribute('src');
+                audio.load();
+            }
         };
     }, [audioSrc, episodeTitle]);
 
@@ -101,7 +138,7 @@ export default function AudioPlayer({ audioSrc, episodeTitle }: AudioPlayerProps
             animate={{ opacity: 1, y: 0 }}
             className="bg-netflix-darkGray rounded-lg overflow-hidden netflix-shadow"
         >
-            <audio ref={audioRef} src={audioSrc} preload="metadata" />
+            <audio ref={audioRef} preload="metadata" />
 
             <div className="p-4">
                 <div className="flex items-center gap-4">
@@ -118,10 +155,10 @@ export default function AudioPlayer({ audioSrc, episodeTitle }: AudioPlayerProps
                         )}
                     </button>
 
-                    {/* Episode Info */}
+                    {/* Song Info */}
                     <div className="flex-1 min-w-0">
-                        <h4 className="font-semibold text-sm truncate">{episodeTitle}</h4>
-                        <p className="text-xs text-netflix-lightGray">Episode Soundtrack</p>
+                        <h4 className="font-semibold text-sm truncate">{songName || episodeTitle}</h4>
+                        <p className="text-xs text-netflix-lightGray">🎵 Episode Soundtrack</p>
                     </div>
 
                     {/* Expand Button */}

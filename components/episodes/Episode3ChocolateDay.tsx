@@ -1,9 +1,13 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
+import { useState } from 'react';
 import MemoryGallery from '../MemoryGallery';
 
 export default function Episode3ChocolateDay() {
+    const [isExpanded, setIsExpanded] = useState(false);
+
     // TODO: PERSONALIZE - Add your sweet memories
     const sweetMessage = `
     Life with you is sweeter than the finest chocolate.
@@ -12,14 +16,75 @@ export default function Episode3ChocolateDay() {
   `;
 
     const images = [
-        '/assets/images/WhatsApp Image 2026-02-01 at 20.47.15 (5).jpeg',
-        '/assets/images/WhatsApp Image 2026-02-01 at 20.47.15 (6).jpeg',
-        '/assets/images/WhatsApp Image 2026-02-01 at 20.47.15 (7).jpeg',
-        '/assets/images/WhatsApp Image 2026-02-01 at 20.47.15 (8).jpeg',
+        '/assets/images/WhatsApp Image 2026-02-06 at 12.38.01 (1).jpeg',
+        '/assets/images/WhatsApp Image 2026-02-06 at 12.38.02.jpeg',
+        '/assets/images/WhatsApp Image 2026-02-06 at 12.38.02 (1).jpeg',
+        '/assets/images/WhatsApp Image 2026-02-06 at 12.38.03.jpeg',
+        '/assets/images/WhatsApp Image 2026-02-06 at 12.38.03 (1).jpeg',
     ];
 
     return (
         <div className="space-y-12">
+            {/* Chocolate Poster with Expand Functionality */}
+            <div className="relative">
+                <motion.div
+                    layoutId="choco-poster"
+                    onClick={() => setIsExpanded(true)}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="cursor-pointer rounded-lg overflow-hidden netflix-shadow border border-netflix-darkGray/50 bg-black/40 group relative"
+                >
+                    <div className="relative aspect-[4/3] md:aspect-video w-full flex items-center justify-center">
+                        <Image
+                            src="/assets/images/Choco.png"
+                            alt="Chocolate Day"
+                            fill
+                            className="object-contain transition-transform duration-500 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
+                            <span className="bg-netflix-red text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+                                Click to Expand 🔍
+                            </span>
+                        </div>
+                    </div>
+                </motion.div>
+
+                <AnimatePresence>
+                    {isExpanded && (
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4 md:p-8 cursor-zoom-out"
+                            onClick={() => setIsExpanded(false)}
+                        >
+                            <motion.button
+                                className="absolute top-6 right-6 text-white text-4xl font-light hover:text-netflix-red transition-colors z-[110]"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    setIsExpanded(false);
+                                }}
+                            >
+                                ×
+                            </motion.button>
+                            <motion.div
+                                layoutId="choco-poster"
+                                className="relative w-full h-full max-w-4xl max-h-[90vh] flex items-center justify-center"
+                            >
+                                <Image
+                                    src="/assets/images/Choco.png"
+                                    alt="Expanded Chocolate Poster"
+                                    width={1200}
+                                    height={1800}
+                                    className="max-h-full w-auto object-contain rounded-sm"
+                                    priority
+                                />
+                            </motion.div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+            </div>
+
             {/* Chocolate Theme Header */}
             <motion.div
                 initial={{ opacity: 0, y: 20 }}

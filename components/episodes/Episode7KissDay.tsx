@@ -5,18 +5,28 @@ import MemoryGallery from '../MemoryGallery';
 
 export default function Episode7KissDay() {
     // TODO: PERSONALIZE - Add your romantic message
-    const kissMessage = `
-    Every kiss tells a story words cannot express.
-    In that moment, time stands still and the world disappears.
-    Your lips on mine—my favorite place to be.
-  `;
+    const kissMessage = `If this week is our little season, then today feels like the episode where the story finally smiles at itself.
+
+I still remember that night near Farmaish Lane. Standing near the car, on that open road, talking about nothing important and yet not really wanting the moment to end. You know how it started. A little too much talking from my side, a little unnecessary convincing, and yes… some very intentional “manipulation” just to stretch the moment a little longer. (I still maintain it was strategic.)
+
+And then it happened. Our first kiss. Not dramatic, not planned, just natural. Like the conversation had quietly led us there all along. I remember how everything suddenly felt still for a second, like the world gave us space to realise what we already knew.
+
+What I loved most about that moment wasn’t just the kiss. It was how comfortable it felt after. No awkwardness, no rush. Just us, smiling like we had crossed into a new chapter without needing to say it out loud.
+
+Some moments stay because they feel right the instant they happen. That was one of them. Soft, a little funny, a little nervous, and completely ours.
+
+Happy Kiss Day, my love 💋
+(The chapter where talking finally worked in my favour.)
+
+Always yours,
+Janit`;
 
     const images = [
+        '/assets/images/WhatsApp Image 2026-02-01 at 20.47.17 (1).jpeg',
+        '/assets/images/WhatsApp Image 2026-02-01 at 20.47.18.jpeg',
+        '/assets/images/WhatsApp Image 2026-02-01 at 20.47.18 (1).jpeg',
+        '/assets/images/WhatsApp Image 2026-02-01 at 20.47.18 (2).jpeg',
         '/assets/images/WhatsApp Image 2026-02-01 at 20.47.18 (3).jpeg',
-        '/assets/images/WhatsApp Image 2026-02-01 at 20.47.18 (4).jpeg',
-        '/assets/images/WhatsApp Image 2026-02-01 at 20.47.18 (5).jpeg',
-        '/assets/images/WhatsApp Image 2026-02-01 at 20.47.18 (6).jpeg',
-        '/assets/images/WhatsApp Image 2026-02-01 at 20.47.18 (7).jpeg',
     ];
 
     return (
