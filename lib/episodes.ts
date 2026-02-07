@@ -136,10 +136,10 @@ export const episodes: Episode[] = [
 ];
 
 export function isEpisodeUnlocked(episode: Episode): boolean {
-    // Temporarily unlocked - all episodes are accessible
-    return true;
-    // const now = new Date();
-    // return now >= episode.releaseDate;
+    const now = new Date();
+    // Set 'now' to start of day for cleaner comparison if needed, 
+    // but the current logic handles it well as releaseDate is also a Date object.
+    return now >= episode.releaseDate;
 }
 
 export function getNextEpisode(currentId: number): Episode | null {
