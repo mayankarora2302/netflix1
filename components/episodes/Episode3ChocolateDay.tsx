@@ -36,7 +36,7 @@ export default function Episode3ChocolateDay() {
                 >
                     <div className="relative aspect-[4/3] md:aspect-video w-full flex items-center justify-center">
                         <Image
-                            src="/assets/images/Choco.png"
+                            src="/assets/images/Choco.jpeg"
                             alt="Chocolate Day"
                             fill
                             className="object-contain transition-transform duration-500 group-hover:scale-105"
@@ -72,7 +72,7 @@ export default function Episode3ChocolateDay() {
                                 className="relative w-full h-full max-w-4xl max-h-[90vh] flex items-center justify-center"
                             >
                                 <Image
-                                    src="/assets/images/Choco.png"
+                                    src="/assets/images/Choco.jpeg"
                                     alt="Expanded Chocolate Poster"
                                     width={1200}
                                     height={1800}
