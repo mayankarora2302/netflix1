@@ -1,4 +1,4 @@
-export const RELATIONSHIP_START_DATE = new Date('2024-02-15'); // TODO: PERSONALIZE - Update with your actual relationship start date
+export const RELATIONSHIP_START_DATE = new Date('2024-02-15T00:00:00');
 
 export function formatDuration(startDate: Date): {
     years: number;
@@ -9,24 +9,47 @@ export function formatDuration(startDate: Date): {
     seconds: number;
 } {
     const now = new Date();
-    const diff = now.getTime() - startDate.getTime();
 
-    const seconds = Math.floor(diff / 1000);
-    const minutes = Math.floor(seconds / 60);
-    const hours = Math.floor(minutes / 60);
-    const days = Math.floor(hours / 24);
-    const months = Math.floor(days / 30.44); // Average month length
-    const years = Math.floor(days / 365.25); // Account for leap years
+    let years = now.getFullYear() - startDate.getFullYear();
+    let months = now.getMonth() - startDate.getMonth();
+    let days = now.getDate() - startDate.getDate();
+    let hours = now.getHours() - startDate.getHours();
+    let minutes = now.getMinutes() - startDate.getMinutes();
+    let seconds = now.getSeconds() - startDate.getSeconds();
+
+    // Handle negative values by borrowing from larger units
+    if (seconds < 0) {
+        seconds += 60;
+        minutes -= 1;
+    }
+    if (minutes < 0) {
+        minutes += 60;
+        hours -= 1;
+    }
+    if (hours < 0) {
+        hours += 24;
+        days -= 1;
+    }
+    if (days < 0) {
+        const lastMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+        days += lastMonth.getDate();
+        months -= 1;
+    }
+    if (months < 0) {
+        months += 12;
+        years -= 1;
+    }
 
     return {
         years,
-        months: months % 12,
-        days: days % 30,
-        hours: hours % 24,
-        minutes: minutes % 60,
-        seconds: seconds % 60,
+        months,
+        days,
+        hours,
+        minutes,
+        seconds,
     };
 }
+
 
 export function formatDate(date: Date): string {
     return date.toLocaleDateString('en-US', {

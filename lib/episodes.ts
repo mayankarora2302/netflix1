@@ -1,3 +1,5 @@
+import { RELATIONSHIP_START_DATE } from './dateUtils';
+
 export interface Episode {
     id: number;
     title: string;
@@ -12,7 +14,6 @@ export interface Episode {
     songName?: string;
 }
 
-export const RELATIONSHIP_START_DATE = new Date('2024-02-15'); // TODO: PERSONALIZE - Update with your actual relationship start date
 
 export const episodes: Episode[] = [
     {
