@@ -48,7 +48,7 @@ export const episodes: Episode[] = [
         subtitle: "Sweet Like Us",
         theme: "Warm, cozy, indulgent",
         releaseDate: new Date('2026-02-09'),
-        coverImage: '/assets/images/Choco.jpeg',
+        coverImage: '/assets/images/WhatsApp Image 2026-02-06 at 12.38.01.jpeg',
         description: "Indulge in the sweetness of our memories - every moment as delightful as the finest chocolate.",
         duration: "10 min",
         color: "#7B3F00",
